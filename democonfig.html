@@ -1,0 +1,34 @@
+requirejs.config({
+    paths: {
+        'zepto': 'widget/lib/jquery-1.11.3.min',
+        'fastclick': 'widget/lib/fastclick.min',
+        'libio': 'widget/io',
+        'libjson': 'widget/util/json',
+        'libchannel': 'widget/util/channel',
+        'liblayers': 'widget/ui/layer',
+        'libinherit': 'widget/util/inherit',
+        'libevt': 'widget/util/evt',
+        'libdom': 'widget/util/dom',
+        'libcompatible': 'widget/util/compatible',
+        'libload': 'widget/util/load',
+        'libbase': 'widget/util/base',
+        'libclassdesign': 'widget/util/classdesign',
+        'libtpl': 'widget/util/tpl',
+        'libpage': 'widget/ui/page'
+    }
+});
+
+define('$',['zepto'],function($){
+    return $;
+});
+
+/**
+ * fastclick绑定 
+ */
+requirejs(['fastclick'],function(FastClick){
+    if(window._nobindFastclick != true){ //默认绑定fastclick
+        document.addEventListener('DOMContentLoaded', function() {
+            window.fastclickobj = FastClick.attach(document.body);
+        }, false);
+    }
+});
