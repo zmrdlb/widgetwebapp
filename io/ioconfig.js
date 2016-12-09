@@ -56,6 +56,7 @@ define(['$'],function($){
 		//同ajax参数官方说明项
 		url: '',
 		method: 'GET',
+		contentType: 'application/x-www-form-urlencoded',
 		complete: function(jqXHR, textStatus){},
 		success: function(data, textStatus, jqXHR){},
 		error: function(jqXHR, textStatus, errorThrown){ alert('网络错误'); },
@@ -93,14 +94,14 @@ define(['$'],function($){
 		}
 	};
 	/**
-	 * 获取接口配置 
+	 * 获取接口配置
 	 * @param {String} name 接口名称
 	 */
 	that.getTrans = function(name){
 		return iocache[name];
 	};
 	/**
-	 * 设置全局的接口请求配置 
+	 * 设置全局的接口请求配置
      * @param {Object} setting
 	 */
 	that.globalSetup = function(setting){
