@@ -29,11 +29,12 @@ define(['$','liblayers/layer','liblayers/mask','libinherit/extendClass','liblaye
      * 		   mask: { //遮罩信息参数，具体说明可见方法layer/mask中的config说明。在此基础上进行以下扩展
      * 			  mask: true, //是否创建遮罩
      *            cmlhide: false //点击遮罩是否关闭弹层
+     *            //其他查看mask.js中的配置
      * 		   }
      *      }
 	 */
 	function bombLayer(config){
-		if(!config.container || config.container.size() == 0){
+		if(!config.container || config.container.length == 0){
 			config.container = $('<div></div>').appendTo('body');
 			this._newcontainer = true; //说明是新创建的容器
 		}
@@ -79,7 +80,7 @@ define(['$','liblayers/layer','liblayers/mask','libinherit/extendClass','liblaye
 		if($checkDataType.isArray(nodenamearr)){
 			$.each(nodenamearr,function(index,name){
 				var node = that.layer.find('.js-'+name);
-				if(node.size() > 0){
+				if(node.length > 0){
 					result[name] = node;
 				}
 			});
