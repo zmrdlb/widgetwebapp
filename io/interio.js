@@ -33,7 +33,7 @@ define(['$','libio/ioconfig'],function($,$ioconfig){
 		this.request(req,true);
 	};
 	/**
-	* 添加接口请求处理 
+	* 添加接口请求处理
     * @param {JSON} *opt format后的接口参数
     * @param {Boolean} advance 是否是queueHander.advance调用
 	*/
@@ -50,7 +50,7 @@ define(['$','libio/ioconfig'],function($,$ioconfig){
 	 */
 	var queueControl = {
 		_queueobjs: [], //queueHandle对象列表
-		get: function(){ //返回当前空闲的queueHandle对象 
+		get: function(){ //返回当前空闲的queueHandle对象
 			var curqueue = null;
 			var queueobjs = this._queueobjs;
 			for(var i = 0, len = queueobjs.length; i < len; i++){
@@ -98,7 +98,7 @@ define(['$','libio/ioconfig'],function($,$ioconfig){
 				        var loginurl = $ioconfig.login.url;
                         var search = $ioconfig.login.key+'='+encodeURIComponent(location.href);
                         if(loginurl.lastIndexOf('?') != -1){
-                            loginurl = loginurl.replace(/\?/,'?'+search+'&');
+                            loginurl = loginurl.replace(/\?/,'?'+search);
                         }
                         else{
                             loginurl = loginurl+'?'+search;
@@ -136,7 +136,7 @@ define(['$','libio/ioconfig'],function($,$ioconfig){
 		return conf;
 	}
 	/**
-	 * 处理接口请求 
+	 * 处理接口请求
      * @param {JSON} ioopt format后的接口参数
 	 */
 	function request(ioopt){
@@ -164,7 +164,7 @@ define(['$','libio/ioconfig'],function($,$ioconfig){
 	var mainqueue = new queueHandle(); //主线程队列控制对象
 	return {
 		/**
-		 * 执行接口请求 
+		 * 执行接口请求
          * @param {String} *name 接口名称。对应ioconfig.js里的settrans方法配置项的name
          * @param {JSON} args 接口扩展参数。对应ioconfig.js里的ioargs配置格式
 		 */
