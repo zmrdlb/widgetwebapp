@@ -10,9 +10,7 @@
  * 	 pos.poscal.add(function(){console.log('layer定位后回调')});
  * });
  * */
-define(['$','libcompatible/csssuport','libevt/winscroll','libevt/scroll','libevt/winresize','libevt/resize'],function($,$csssuport,$winscroll,$scroll,$winresize,$resize){
-	//判断是否可以使用position:fixed方式定位
-    var canFix = $csssuport.fixed;
+define(['$','libevt/winscroll','libevt/scroll','libevt/winresize','libevt/resize'],function($,$winscroll,$scroll,$winresize,$resize){
 	/**
 	 * 定位算法
 	 */
@@ -66,7 +64,7 @@ define(['$','libcompatible/csssuport','libevt/winscroll','libevt/scroll','libevt
 		if(domopt.layer && typeof domopt.layer == 'string'){
 			domopt.layer = $(domopt.layer);
 		}
-		if(!domopt.layer || domopt.layer.size() == 0){
+		if(!domopt.layer || domopt.layer.length == 0){
 			throw new Error('传入的定位层节点无效');
 		}
 		var posopt = $.extend({
@@ -95,7 +93,7 @@ define(['$','libcompatible/csssuport','libevt/winscroll','libevt/scroll','libevt
 		    domopt.offcon = $('body');
 			domopt.offpage = true;
 		}
-		if(domopt.offpage && posopt.fixed && canFix){ //如果定位容器是当前页面、固定定位、可使用fixed定位。则用fixed定位
+		if(domopt.offpage && posopt.fixed){ //如果定位容器是当前页面、固定定位、可使用fixed定位。则用fixed定位
 			domopt.position = 'fixed';
 		}
 		else{
