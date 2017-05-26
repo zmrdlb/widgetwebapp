@@ -16,7 +16,8 @@ requirejs.config({
         'libclassdesign': 'widget/util/classdesign',
         'libtpl': 'widget/util/tpl',
         'libpage': 'widget/ui/page',
-        'libtab': 'widget/ui/tab'
+        'libtab': 'widget/ui/tab',
+        'libform': 'widget/ui/form'
     },
     map: {
         '*': {
@@ -30,7 +31,7 @@ define('$',['zepto'],function(){
 });
 
 /**
- * fastclick绑定 
+ * fastclick绑定
  */
 requirejs(['fastclick'],function(FastClick){
     if(window._nobindFastclick != true){ //默认绑定fastclick
