@@ -27,8 +27,9 @@ define(['$','liblayers/positionBomb','libcompatible/deviceevtname'],function($,$
 		var that = this;
 		var opt = $.extend({
 			classname: '', //mask的class
-			bgcolor: 'rgba(0,0,0,0.6)', //背景色
+			bgcolor: '#000', //背景色
 			zIndex: 1, //遮罩z-index
+			opacity: 0.6, //遮罩透明度
 			show: false, //创建遮罩后默认是否显示
 			custom: {
 				show: null, //用户自定义显示层的方法。如果此方法存在，则不用默认的显示层方法
@@ -39,6 +40,7 @@ define(['$','liblayers/positionBomb','libcompatible/deviceevtname'],function($,$
 		this.container = container; //遮罩容器
 		this.mask = $('<div'+(opt.classname == ''?'':' class="'+opt.classname+'"')+' style="'+cssstr+'"></div>');
 		this.mask.appendTo(container);
+		this.mask.css('opacity',opt.opacity);
 		this.custom  = opt.custom; //自定义方法
 		this.pos = new $positionBomb({layer:this.mask},{mode:'full'});
 		//绑定事件
